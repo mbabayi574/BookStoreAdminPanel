@@ -1,7 +1,8 @@
 import backgroundImage from "../../assets/images/Background.webp";
+import { axiosPost } from "../../Utils";
 
 export function LoginPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Log username and password to console
     const formData = new FormData(event.currentTarget);
@@ -9,6 +10,13 @@ export function LoginPage() {
     const password = formData.get("password") as string;
     console.log("Username:", username);
     console.log("Password:", password);
+
+    const result = await axiosPost("/api/token/", {
+      phone_number: username,
+      password: password,
+    });
+
+    console.log("Login Result:", result);
   };
 
   return (
