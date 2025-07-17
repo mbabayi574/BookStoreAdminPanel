@@ -1,9 +1,14 @@
+import { Routes, Route } from "react-router";
 import "./App.css";
+
+import { LoginPage } from "./pages/authentication/login";
 
 function App() {
   return (
     <>
-      <div>Hello</div>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
     </>
   );
 }
