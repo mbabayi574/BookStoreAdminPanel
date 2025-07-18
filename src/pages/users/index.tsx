@@ -37,33 +37,29 @@ export const UsersPage = () => {
   console.log("Users:", users);
 
   return (
-    <div dir="ltr" className="w-full h-full  flex flex-col  p-4">
-      <div className="flex justify-between items-center mb-4">
-        <div>
-          <Pagination
-            layout="navigation"
-            totalPages={10}
-            currentPage={currentPage}
-            onPageChange={onPageChange}
-            previousLabel="قبلی"
-            nextLabel="بعدی"
-          />
-        </div>
-        <div>
-          <Button color="green">افزودن</Button>
-        </div>
+    <div dir="ltr" className="w-full h-screen flex flex-col p-6">
+      <div className="flex justify-between items-center mb-6">
+        <Pagination
+          layout="navigation"
+          totalPages={10}
+          currentPage={currentPage}
+          onPageChange={onPageChange}
+          previousLabel="قبلی"
+          nextLabel="بعدی"
+        />
+        <Button color="green">افزودن</Button>
       </div>
 
-      <div>
-        <div className="overflow-y-auto max-h-96">
-          <Table hoverable className="overflow-y-auto">
+      <div className="flex-1 overflow-hidden">
+        <div className="h-full overflow-y-auto">
+          <Table hoverable className="w-full">
             <TableHead className="sticky top-0 z-10">
               <TableRow>
-                <TableHeadCell>شناسه ( id )</TableHeadCell>
-                <TableHeadCell>شماره تماس</TableHeadCell>
-                <TableHeadCell>وضعیت</TableHeadCell>
-                <TableHeadCell>مدیر</TableHeadCell>
-                <TableHeadCell>
+                <TableHeadCell className="w-auto">شناسه ( id )</TableHeadCell>
+                <TableHeadCell className="w-auto">شماره تماس</TableHeadCell>
+                <TableHeadCell className="w-auto">وضعیت</TableHeadCell>
+                <TableHeadCell className="w-auto">مدیر</TableHeadCell>
+                <TableHeadCell className="w-auto">
                   <span className="sr-only">ویرایش</span>
                 </TableHeadCell>
               </TableRow>
