@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router";
 import backgroundImage from "../../assets/images/Background.webp";
 import { axiosPost } from "../../Utils";
 
 export function LoginPage() {
+  const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Log username and password to console
@@ -16,7 +19,10 @@ export function LoginPage() {
       password: password,
     });
 
-    console.log("Login Result:", result);
+    localStorage.setItem("access_token", result.access);
+    localStorage.setItem("refresh_token", result.refresh);
+
+    navigate("/users");
   };
 
   return (

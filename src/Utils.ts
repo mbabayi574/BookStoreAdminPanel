@@ -7,7 +7,7 @@ export const axiosPost = async (url: string, data: unknown) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token") || ""}`,
+        Authorization: `Bearer ${localStorage.getItem("access_token") || ""}`,
       },
     });
     return response.data;
