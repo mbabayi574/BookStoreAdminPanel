@@ -9,6 +9,7 @@ import { LoginPage } from "./pages/authentication/login";
 import { SidebarComponent } from "./pages/layout/sidebar";
 import type { JSX } from "react";
 // Main Pages
+import { UsersPage } from "./pages/users";
 
 // Auth guard component
 function RequireAuth({ children }: { children: JSX.Element }) {
@@ -22,7 +23,7 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 // Layout component that wraps the main content with sidebar
 function Layout() {
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ display: "flex", height: "100vh", width: "100%" }}>
       <SidebarComponent />
       <div style={{ marginLeft: "250px" }}>
         <Outlet />
@@ -44,8 +45,8 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<div>Dashboard</div>} />
-          <Route path="users" element={<div>Users Page</div>} />
+          <Route index element={<div>داشبورد</div>} />
+          <Route path="users" element={<UsersPage />} />
           <Route path="books" element={<div>Books Page</div>} />
           <Route path="categories" element={<div>Categories Page</div>} />
           <Route path="authors" element={<div>Authors Page</div>} />

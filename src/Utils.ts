@@ -16,3 +16,23 @@ export const axiosPost = async (url: string, data: unknown) => {
     throw error;
   }
 };
+
+export const axiosGet = async (
+  url: string,
+  params?: Record<string, string>
+) => {
+  try {
+    const response = await axios.get(`${API_URL}${url}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access_token") || ""}`,
+      },
+      params,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error in GET request:", error);
+    throw error;
+  }
+};
